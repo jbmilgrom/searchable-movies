@@ -1,5 +1,4 @@
-console.log('hello');
-angular.module('app', [])
+angular.module('app', ['component'])
 
   .component('test', {
     templateUrl: 'test.html',

@@ -1,0 +1,29 @@
+<div class="movies-search-component">
+  <input
+    type="text"
+    ng-model="$ctrl.searchText"
+    placeholder="Enter title"
+    ng-change="$ctrl.handleSearch()"
+    ng-model-options="{debounce: 300}"
+  >
+  <div ng-if="!$ctrl.searchText.length">
+    Search for your favorite movie!
+  </div>
+  <div ng-if="$ctrl.isFetching">
+    Fetching movies...
+  </div>
+  <div ng-if="!$ctrl.isFetching && $ctrl.searchText.length && $ctrl.movies.length === 0">
+    No movies match '{{$ctrl.searchText}}'
+  </div>
+  <div ng-if="!$ctrl.isFetching && $ctrl.movies.length > 0">
+    <div ng-repeat="movie in $ctrl.movies" class="movie-summary-card">
+      <div class="title">
+        {{movie.title}}
+      </div>
+      <div class="release-date">
+        {{movie.release_date | date:'yyyy-MM-dd' }}
+      </div>
+      <img ng-src="{{movie.poster_path}}"/>
+    </li>
+  </div>
+</div>

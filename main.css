@@ -8,7 +8,6 @@ body {
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-areas: "spotlight list";
-  height: 1000px;
 }
 
 .movie-spotlight {
@@ -21,6 +20,8 @@ body {
   padding: 15px;
   grid-area: list;
   border-left: 1px solid rgba(0, 0, 0, 0.12);
+  height: 100vh;
+  overflow: scroll;
 }
 
 .movies-search-component {

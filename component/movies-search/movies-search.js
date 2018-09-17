@@ -4,6 +4,7 @@ angular.module('component')
     templateUrl: 'component/movies-search/movies-search.html',
     bindings: {
       onMovieSelect: '&',
+      onMovieUnselect: '&',
       selectedMovie: '<'
     },
     controller: function(movieService) {
@@ -12,6 +13,7 @@ angular.module('component')
       this.movies = [];
 
       this.handleSearch = () => {
+        this.onMovieUnselect();
         if (!this.searchText.length) {
           this.movies = [];
           return;

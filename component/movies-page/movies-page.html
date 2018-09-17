@@ -5,6 +5,7 @@
   <div class="movies-list">
     <movies-search
       on-movie-select="$ctrl.onMovieSelect(movie)"
+      on-movie-unselect="$ctrl.selectedMovie = null"
       selected-movie="$ctrl.selectedMovie"
       >
     </movies-search>

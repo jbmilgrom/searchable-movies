@@ -18,7 +18,7 @@
   <div ng-if="!$ctrl.isFetching && $ctrl.movies.length > 0">
     <div
       class="movie-summary-card"
-      ng-repeat="movie in ::$ctrl.movies"
+      ng-repeat="movie in ::$ctrl.movies track by movie.id"
       ng-click="::$ctrl.onMovieSelect({movie: movie})">
       <div class="title">
         {{::movie.title}}

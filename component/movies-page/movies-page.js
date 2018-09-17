@@ -5,7 +5,6 @@ angular.module('component')
     controller: function() {
       this.selectedMovie = null;
       this.onMovieSelect = movie => {
-        console.log('movieSelected', movie);
         this.selectedMovie = movie;
       };
     }

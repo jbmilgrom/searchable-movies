@@ -1,3 +1,8 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
 .movies-page {
   padding: 10px;
   display: grid;
@@ -9,12 +14,10 @@
 
 .movie-spotlight {
   grid-area: spotlight;
-  /* background-color: red; */
 }
 
 .movies-list {
   grid-area: list;
-  /* background-color: purple; */
 }
 
 .movies-search-component {
@@ -57,7 +60,7 @@
   padding: 10px;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 2fr 3fr;
   grid-template-rows: repeat(6, minmax(20px, auto));
   grid-template-areas:
     "image title"
@@ -71,6 +74,7 @@
 
 .movie-spotlight-component .movie-spotlight-wrapper img {
   grid-area: image;
+  margin: 0 auto;
 }
 
 .movie-spotlight-component .movie-spotlight-wrapper .title {
@@ -91,4 +95,30 @@
 
 .movie-spotlight-component .movie-spotlight-wrapper .top-billed-cast {
   grid-area: topBilledCast;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.top-billed-cast .cast-member {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas:
+    "image"
+    "image"
+    "name"
+}
+
+.top-billed-cast .cast-member img {
+  grid-area: image;
+  width: 90px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.top-billed-cast .cast-member .name {
+  grid-area: name;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

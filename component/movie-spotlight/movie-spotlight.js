@@ -28,7 +28,7 @@ angular.module('component')
   });
 
   /**
-   * Data returned by the /cast_members data sometimes lacks a profile_path property
+   * Data returned by the /cast_members endpoint sometimes lacks a profile_path property
    * @param {*} castMembers
    */
   const getFirst3WithProfilePath = castMembers => {

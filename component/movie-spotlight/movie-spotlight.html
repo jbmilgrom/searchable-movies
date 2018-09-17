@@ -1,0 +1,14 @@
+<div class="movie-spotlight-component">
+  <div class="message" ng-if="!$ctrl.isFetching && !$ctrl.movie">No movie selected...</div>
+  <div class="message" ng-if="$ctrl.isFetching">Loading...</div>
+  <div ng-if="!$ctrl.isFetching && $ctrl.movie" class="movie-spotlight-wrapper">
+    <img ng-src="{{$ctrl.movie.poster_path}}"/>
+    <div class="title">{{$ctrl.movie.title}}</div>
+    <div class="overview-label">Overview</div>
+    <div class="overview">{{$ctrl.movie.overview}}</div>
+    <!-- Endpoint doesn't appear to provide featured crew; should I have randomly sampled the data? -->
+    <!-- <div class="featured-crew-label"></div> -->
+    <div class="top-billed-cast-label">Top Billed Cast</div>
+    <div class="top-billed-cast"></div>
+  </div>
+</div>

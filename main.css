@@ -1,8 +1,9 @@
 .movies-page {
+  padding: 10px;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-areas: "spotlight list";
-  grid-gap: 10px;
+  grid-gap: 20px;
   height: 1000px;
 }
 
@@ -20,7 +21,12 @@
   padding: 5px;
 }
 
+.movies-search-component .message {
+  padding-top: 10px;
+}
+
 .movies-search-component .movie-summary-card {
+  cursor: pointer;
   margin-top: 10px;
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -45,4 +51,44 @@
   grid-area: image;
   width: 80px;
   height: auto;
+}
+
+.movie-spotlight-component .movie-spotlight-wrapper {
+  padding: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: repeat(6, minmax(20px, auto));
+  grid-template-areas:
+    "image title"
+    "image overviewLabel"
+    "image overview"
+    "image ."
+    "image ."
+    "topBilledCastLabel ."
+    "topBilledCast .";
+}
+
+.movie-spotlight-component .movie-spotlight-wrapper img {
+  grid-area: image;
+}
+
+.movie-spotlight-component .movie-spotlight-wrapper .title {
+  grid-area: title;
+}
+
+.movie-spotlight-component .movie-spotlight-wrapper .overview-label {
+  grid-area: overviewLabel;
+}
+
+.movie-spotlight-component .movie-spotlight-wrapper .overview {
+  grid-area: overview;
+}
+
+.movie-spotlight-component .movie-spotlight-wrapper .top-billed-cast-label {
+  grid-area: topBilledCastLabel;
+}
+
+.movie-spotlight-component .movie-spotlight-wrapper .top-billed-cast {
+  grid-area: topBilledCast;
 }

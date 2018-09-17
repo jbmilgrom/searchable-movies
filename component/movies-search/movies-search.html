@@ -2,28 +2,31 @@
   <input
     type="text"
     ng-model="$ctrl.searchText"
-    placeholder="Enter title"
-    ng-change="$ctrl.handleSearch()"
+    placeholder="Enter a title"
+    ng-change="::$ctrl.handleSearch()"
     ng-model-options="{debounce: 300}"
   >
-  <div ng-if="!$ctrl.searchText.length">
+  <div ng-if="!$ctrl.searchText.length" class="message">
     Search for your favorite movie!
   </div>
-  <div ng-if="$ctrl.isFetching">
+  <div ng-if="$ctrl.isFetching" class="message">
     Fetching movies...
   </div>
-  <div ng-if="!$ctrl.isFetching && $ctrl.searchText.length && $ctrl.movies.length === 0">
+  <div ng-if="!$ctrl.isFetching && $ctrl.searchText.length && $ctrl.movies.length === 0" class="message">
     No movies match '{{$ctrl.searchText}}'
   </div>
   <div ng-if="!$ctrl.isFetching && $ctrl.movies.length > 0">
-    <div ng-repeat="movie in $ctrl.movies" class="movie-summary-card">
+    <div
+      class="movie-summary-card"
+      ng-repeat="movie in ::$ctrl.movies"
+      ng-click="::$ctrl.onMovieSelect({movie: movie})">
       <div class="title">
-        {{movie.title}}
+        {{::movie.title}}
       </div>
       <div class="release-date">
-        {{movie.release_date | date:'yyyy-MM-dd' }}
+        {{::movie.release_date | date:'yyyy-MM-dd' }}
       </div>
-      <img ng-src="{{movie.poster_path}}"/>
+      <img ng-src="{{::movie.poster_path}}"/>
     </li>
   </div>
 </div>

@@ -2,6 +2,9 @@ angular.module('component')
 
   .component('moviesSearch', {
     templateUrl: 'component/movies-search/movies-search.html',
+    bindings: {
+      onMovieSelect: '&'
+    },
     controller: function($http) {
       this.searchText = '';
       this.isFetching = false;
@@ -14,11 +17,8 @@ angular.module('component')
         }
         this.isFetching = true;
         searchMovies($http, this.searchText).then(movies => {
-          console.log('helloooo', movies);
           this.movies = movies;
           this.isFetching = false;
-
-          console.log('isfetching', this.isFetching);
         });
       };
     }

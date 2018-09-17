@@ -1,8 +1,8 @@
 <div class="movies-page">
   <div class="movie-spotlight">
-    movie spotlight
+    <movie-spotlight movie="$ctrl.selectedMovie"></movie-spotlight>
   </div>
   <div class="movies-list">
-    <movies-search></movies-search>
+    <movies-search on-movie-select="$ctrl.onMovieSelect(movie)"></movies-search>
   </div>
 </div>

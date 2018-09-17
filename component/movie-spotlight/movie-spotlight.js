@@ -9,14 +9,13 @@ angular.module('component')
       movie: '<'
     },
     controller: function($http) {
+
       this.$onChanges = changes => {
-        console.log('movieSpotloght changes', changes);
         const movie = changes.movie.currentValue;
         if (movie) {
           this.movie = movie;
           this.isFetching = true;
           movieCast($http, movie.id).then(cast => {
-            console.log('cast in da house', cast);
             this.top3CastMembers = cast.slice(0, 3).map(member => Object.assign(member, {
               profile_path: `http://image.tmdb.org/t/p/w185/${member.profile_path}`
             }));
@@ -24,6 +23,7 @@ angular.module('component')
           });
         }
       };
+
     }
   });
 

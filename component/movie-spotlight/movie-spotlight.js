@@ -8,16 +8,16 @@ angular.module('component')
        */
       movie: '<'
     },
-    controller: function($http) {
+    controller: function(castService) {
 
       this.$onChanges = changes => {
         const movie = changes.movie.currentValue;
         if (movie) {
           this.movie = movie;
           this.isFetching = true;
-          movieCast($http, movie.id).then(cast => {
+          castService.getAll(movie.id).then(cast => {
             this.top3CastMembers = getFirst3WithProfilePath(cast).map(member => Object.assign(member, {
-              profile_path: `http://image.tmdb.org/t/p/w185/${member.profile_path}`
+              profile_path: castService.makeFullProfilePath(member.profile_path)
             }));
             this.isFetching = false;
           });
@@ -44,9 +44,4 @@ angular.module('component')
     }
     return first3;
   }
-
-  const movieCast = (http, id) => {
-    return http.get(`https://clutter-front-end-interview.herokuapp.com/movies/${id}/cast_members.json`)
-      .then(response => response.data)
-  };
 

@@ -6,7 +6,7 @@ angular.module('component')
       onMovieSelect: '&',
       selectedMovie: '<'
     },
-    controller: function($http) {
+    controller: function(movieService) {
       this.searchText = '';
       this.isFetching = false;
       this.movies = [];
@@ -17,16 +17,10 @@ angular.module('component')
           return;
         }
         this.isFetching = true;
-        searchMovies($http, this.searchText).then(movies => {
+        movieService.search(this.searchText).then(movies => {
           this.movies = movies;
           this.isFetching = false;
         });
       };
     }
   });
-
-
-const searchMovies = (http, title) => {
-  return http.get(`https://clutter-front-end-interview.herokuapp.com/movies.json?q[title_cont]=${title}`)
-    .then(response => response.data)
-};

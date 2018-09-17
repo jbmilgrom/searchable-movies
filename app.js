@@ -1,4 +1,4 @@
-angular.module('app', ['component'])
+angular.module('app', ['component', 'service'])
 
   .component('test', {
     templateUrl: 'test.html',

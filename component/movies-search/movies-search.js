@@ -3,7 +3,8 @@ angular.module('component')
   .component('moviesSearch', {
     templateUrl: 'component/movies-search/movies-search.html',
     bindings: {
-      onMovieSelect: '&'
+      onMovieSelect: '&',
+      selectedMovie: '<'
     },
     controller: function($http) {
       this.searchText = '';

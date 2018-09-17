@@ -3,6 +3,10 @@
     <movie-spotlight movie="$ctrl.selectedMovie"></movie-spotlight>
   </div>
   <div class="movies-list">
-    <movies-search on-movie-select="$ctrl.onMovieSelect(movie)"></movies-search>
+    <movies-search
+      on-movie-select="$ctrl.onMovieSelect(movie)"
+      selected-movie="$ctrl.selectedMovie"
+      >
+    </movies-search>
   </div>
 </div>

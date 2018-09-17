@@ -40,6 +40,7 @@ body {
 }
 
 .movies-search-component .movie-summary-card {
+  border-radius: 5px;
   padding: 10px;
   cursor: pointer;
   margin-top: 10px;
@@ -56,7 +57,9 @@ body {
 
 .movies-search-component .movie-summary-card:hover {
   background-color: rgba(0, 0, 0, 0.08);
-  border-radius: 5px;
+}
+.movies-search-component .movie-summary-card.selected {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .movies-search-component .movie-summary-card .title {
@@ -82,7 +85,8 @@ body {
 .movie-spotlight-component .movie-spotlight-wrapper {
   padding: 10px;
   display: grid;
-  grid-gap: 10px;
+  grid-row-gap: 15px;
+  grid-column-gap: 10px;
   grid-template-columns: 2fr 3fr;
   grid-template-rows: repeat(6, minmax(20px, auto));
   grid-template-areas:
@@ -102,10 +106,13 @@ body {
 
 .movie-spotlight-component .movie-spotlight-wrapper .title {
   grid-area: title;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .movie-spotlight-component .movie-spotlight-wrapper .overview-label {
   grid-area: overviewLabel;
+  font-size: 25px;
 }
 
 .movie-spotlight-component .movie-spotlight-wrapper .overview {
@@ -115,6 +122,7 @@ body {
 .movie-spotlight-component .movie-spotlight-wrapper .top-billed-cast-label {
   grid-area: topBilledCastLabel;
   text-align: center;
+  font-size: 20px;
 }
 
 .movie-spotlight-component .movie-spotlight-wrapper .top-billed-cast {
